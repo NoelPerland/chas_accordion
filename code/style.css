@@ -2,3 +2,120 @@ html {
   background: #f2f1f4;
   color: #19171c;
 }
+
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.accordion {
+  width: 100%;
+  font-size: x-large;
+  max-width: 860px; /* Made the blocks wider */
+  background-color: #fff;
+  overflow: hidden;
+  margin: 40px;
+}
+
+/* Style for each section */
+.section {
+  border-bottom: 1px solid #ffffff;
+  margin-bottom: 26px;
+  border-radius: 8px; /* Optional: Rounded corners for each section */
+}
+
+/* Title styling */
+
+.title {
+  padding: 20px 24px; /* Increased padding for a larger clickable area */
+  font-size: 20px; /* Increased font size */
+  font-weight: 500; /* Adjusted font weight (medium corresponds to 500 in numeric values) */
+  background-color: #ffffff;
+  color: #000000;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 16px; /* Increased border radius for a more rounded appearance */
+}
+
+.title:hover {
+  background-color: #cad5ed;
+}
+
+.title.active {
+  background-color: #cad5ed;
+}
+
+/* Arrow styling */
+.title::after {
+  content: "↓";
+  font-size: 12px;
+  transition: transform 0.5s ease;
+  transform: rotate(0deg);
+}
+
+/* Active state for arrow when section is open */
+.title.active::after {
+  transform: rotate(180deg);
+}
+
+/* Description styling */
+.description {
+  display: none;
+  padding: 15px 20px;
+  font-size: 16px;
+  line-height: 1.6;
+  background-color: #f9f9f9;
+  color: #444;
+  border-top: 1px solid #ddd;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  border-radius: 0 0 8px 8px; /* Optional: Rounded corners for the description block */
+}
+
+/* Smooth open/close animation for description */
+.section .description {
+  animation: slideDown 0.6s ease forwards;
+}
+
+@keyframes slideDown {
+  from {
+    max-height: 0;
+    opacity: 0;
+  }
+  to {
+    max-height: 200px;
+    opacity: 1;
+  }
+}
+
+/* Closing animation */
+.section.closing .description {
+  animation: slideUp 1s ease forwards;
+}
+
+@keyframes slideUp {
+  from {
+    max-height: 200px;
+    opacity: 1;
+  }
+  to {
+    max-height: 0;
+    opacity: 0;
+  }
+}
