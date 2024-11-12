@@ -53,11 +53,11 @@ body {
 }
 
 .title:hover {
-  background-color: #cad5ed;
+  background-color: hsl(200, 100%, 93%);
 }
 
 .title.active {
-  background-color: #cad5ed;
+  background-color: hsl(200, 100%, 93%);
 }
 
 /* Arrow styling */
